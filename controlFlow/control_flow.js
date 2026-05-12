@@ -48,3 +48,24 @@ console.log("User Category:", userCategory);
 let isAuthenticated = true;
 let authenticationStatus = isAuthenticated ? "Authenticated" : "Not authenticated";
 console.log("Authentication Status:", authenticationStatus);
+
+let roleInOrganization = "Enrolled Member";
+let message;
+
+switch (roleInOrganization){
+
+    case "Employee":
+        message = "You are authorized to access Dietary Services.";
+        break;
+    case "Enrolled Member":
+        message = "You are authorized to have access to Dietary Services and 1-1 interaction";
+        break;
+    case "Subscriber":
+        message = "You have partial access to facilitate Dietary Services only";
+        break;
+    case "Non-Subscriber":
+        message = "Please enroll or atleast subscribe first.";
+        break;
+    }
+
+console.log(message);
