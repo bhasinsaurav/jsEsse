@@ -20,18 +20,25 @@ function endTest(){
     var timeElapsed = (endTime - startTime) / 1000;// in seconds
     var userTypedText = document.getElementById("userInput").value;
 
-    var typedWords = userTypedText.split(/\s+/).filter(function(word) {
+    var words = userTypedText.split(/\s+/);
+    var typedWords = words.filter(function(word) {
         return word !== "";
     }).length;
-
+    
     var wpm = 0;
 
     if (timeElapsed !== 0 && !isNaN(typedWords)) {
         wpm = Math.round((typedWords/timeElapsed) * 60);
     }
 
+    var totalLength = 0;
+    for(let i=0 ; i<userTypedText.length; i++){
+        totalLength++;
+    }
+
     var outputDiv = document.getElementById("output");
     outputDiv.innerHTML = "<h2>Typing Test Results:</h2>" +
+    "<p>Words Length: " + totalLength + "</p>" +
     "<p>Words Typed: " + typedWords + "</p>" +
     "<p>Time Elapsed: " + timeElapsed.toFixed(2) + " seconds</p>" +
     "<p>Words Per Minute (WPM): " + wpm + "</p>";
